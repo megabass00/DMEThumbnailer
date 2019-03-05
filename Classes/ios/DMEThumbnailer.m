@@ -268,7 +268,7 @@
     @autoreleasepool {
         NSFileManager *filemgr = [NSFileManager defaultManager];
         
-        NSString *urlDirectorio = [NSString stringWithFormat:@"%@/%@", [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"Thumbs"];
+        NSString *urlDirectorio = [NSString stringWithFormat:@"%@/%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"Thumbs"];
         
         if([filemgr changeCurrentDirectoryPath: urlDirectorio] == NO)
         {
@@ -321,10 +321,10 @@
 -(NSString *)thumbPathFromFilePath:(NSString *)aPath andPrefix:(NSString *)aPrefix
 {
     if([aPrefix isEqualToString:@""]){
-        return [NSString stringWithFormat:@"%@/%@/%@", [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"Thumbs", [aPath lastPathComponent]];
+        return [NSString stringWithFormat:@"%@/%@/%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"Thumbs", [aPath lastPathComponent]];
     }
     else{
-        return [NSString stringWithFormat:@"%@/%@/%@-%@", [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"Thumbs", aPrefix, [aPath lastPathComponent]];
+        return [NSString stringWithFormat:@"%@/%@/%@-%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"Thumbs", aPrefix, [aPath lastPathComponent]];
     }
 }
 
